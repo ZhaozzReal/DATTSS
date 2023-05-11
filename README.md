@@ -9,3 +9,10 @@ DATTSS is developped for systematic analysis of alternative tandem TSS events fr
 ## Diagram illuminates the DATTSS algorithm
 
 ![image](https://github.com/ZhaozzReal/DATTSS/blob/main/diagram.png)
+
+
+## Installation
+
+DATTSS is built on Python (3.5+):
+
+ 
