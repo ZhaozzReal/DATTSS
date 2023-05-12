@@ -42,7 +42,8 @@ The expected format is `,` to separate different files:
 In ```/path/to/DATTSS_output.txt```, each row corresponds to one tandem TSS event and its related features.
 
 The explanations of column names are as follows:
- ** genename:
+ ** 
+ genename:
  * first_exon_region
  * strand
  * Annotated_TSSs
