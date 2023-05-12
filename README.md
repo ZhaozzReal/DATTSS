@@ -29,3 +29,5 @@ python DATTSS_main.py -b /path/to/allbamfiles.txt -anno /path/to/hg38_first_exon
 ```
 
 ```allbamfiles.txt``` contains all input filenames (BAM format) of samples of interest. The expected format is `,` to separate different files.
+
+***
