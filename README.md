@@ -40,7 +40,18 @@ The expected format is `,` to separate different files:
 ## Output
 
 In ```/path/to/DATTSS_output.txt```, each row corresponds to one tandem TSS event and its related features.
-
+The format is as follows:
+|Column | Description|
+|genename||
+|first_exon_region|
+|strand||
+|Annotated_TSSs||
+|Proximal_TSS||
+|MSE_ratio||
+|sample1.bam||
+|sample2.bam||
+|sample3.bam||
+|sampleN.bam||
 
 
 
