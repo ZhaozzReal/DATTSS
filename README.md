@@ -43,7 +43,7 @@ In ```/path/to/DATTSS_output.txt```, each row corresponds to one tandem TSS even
 
 The explanation of each column is as follows:
  
- *    genename:
+ _ genename:
  * first_exon_region：
  * strand：
  * Annotated_TSSs：
