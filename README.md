@@ -43,17 +43,16 @@ In ```/path/to/DATTSS_output.txt```, each row corresponds to one tandem TSS even
 
 The explanations of column names are as follows:
  
- ** genename:
- 
- * first_exon_region
- * strand
- * Annotated_TSSs
- * Proximal_TSS
- * MSE_ratio
- * sample1.bam
- * sample2.bam
- * sample3.bam
- * sampleN.bam
+ * genename:
+ * first_exon_region：
+ * strand：
+ * Annotated_TSSs：
+ * Proximal_TSS：
+ * MSE_ratio：
+ * sample1.bam：
+ * sample2.bam：
+ * sample3.bam：
+ * sampleN.bam：
 
 
 
