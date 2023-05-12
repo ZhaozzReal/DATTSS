@@ -34,4 +34,4 @@ The expected format is `,` to separate different files:
 /path/to/sample1.bam,/path/to/sample2.bam,/path/to/sample3.bam,/path/to/sampleN.bam
 ```
 
-* ```/path/to/hg38_first_exon_annotation.txt``` is txt file contains first exon regions and annotated tandem TSSs within them built on hg38 version.
+* ```/path/to/hg38_first_exon_annotation.txt``` contains first exon regions of all transcripts and annotated tandem TSSs within them, which is built on hg38 version.
