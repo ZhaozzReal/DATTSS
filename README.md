@@ -3,7 +3,7 @@
 
 ## Description
 
-DATTSS is developped for systematic analysis of alternative tandem TSS events from standard RNA-seq data. Given the read coverage profiles of two or multiple RNA-seq samples, DATTSS first identifies the most distal TSS in each first exon region that has evidence of being used in the samples of interest. Then DATTSS infers the location of proximal tandem TSS based on “change point” model, where the usage of internal tandem TSS would lead to a profound increase in RNA-seq read coverage in the first exon region of a given transcript. Once the proximal tandem TSSs are identified, library size-normalized expression levels and the relative usage of tandem TSS are calculated.
+DATTSS is developped for systematic analysis of alternative tandem TSS events from standard RNA-seq data. Given the read coverage profiles of two or multiple RNA-seq samples, DATTSS first identifies the most distal TSS in each first exon region that has evidence of being used in the samples of interest. Then DATTSS infers the location of proximal tandem TSS based on “change point” model, where the usage of internal tandem TSS would lead to a profound increase in RNA-seq read coverage in the first exon region. Once the proximal tandem TSSs are identified, library size-normalized expression levels and the relative usage of tandem TSS are calculated.
 
 
 ## Diagram illuminates the DATTSS algorithm
@@ -44,7 +44,7 @@ In ```/path/to/DATTSS_output.txt```, each row corresponds to one tandem TSS even
 The explanation of each column is as follows:
  
  * genename: the HUGO gene symbol
- * first_exon_region： the genomic region of first exon region ranging from distal TSS to first exon end
+ * first_exon_region：the genomic region of first exon region ranging from distal TSS to first exon end
  * strand：the strand of given gene
  * Annotated_TSSs：all annotated TSSs within the first exon region
  * Proximal_TSS：the position of proximal TSS inferred by DATTSS based on joint RNA-seq read coverage level
