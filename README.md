@@ -13,7 +13,7 @@ DATTSS is developped for systematic analysis of alternative tandem TSS events fr
 
 ## Installation
 
-DATTSS is built on Python, which requiring packages HTSeq, numpy, multiprocessing and argparse.
+DATTSS is built on Python, which requiring packages ```HTSeq```, ```numpy```, ```multiprocessing``` and ```argparse```.
 
 Clone the lastest development version of DATTSS and change directory:
 
@@ -43,16 +43,16 @@ In ```/path/to/DATTSS_output.txt```, each row corresponds to one tandem TSS even
 
 The explanation of each column is as follows:
  
-      * genename:
- * first_exon_region：
- * strand：
- * Annotated_TSSs：
- * Proximal_TSS：
- * MSE_ratio：
- * sample1.bam：
- * sample2.bam：
- * sample3.bam：
- * sampleN.bam：
+ * genename: the HUGO gene symbol
+ * first_exon_region： the genomic region of first exon region ranging from distal TSS to first exon end
+ * strand：the strand of given gene
+ * Annotated_TSSs：all annotated TSSs within the first exon region
+ * Proximal_TSS：the position of proximal TSS inferred by DATTSS based on joint RNA-seq read coverage level
+ * MSE_ratio：the MSEratio of the inferred proximal TSS
+ * sample1.bam：the distal TSS usage of given tandem TSS event in sample1
+ * sample2.bam：the distal TSS usage of given tandem TSS event in sample2
+ * sample3.bam：the distal TSS usage of given tandem TSS event in sample3
+ * sampleN.bam：the distal TSS usage of given tandem TSS event in sampleN
 
 
 
