@@ -45,7 +45,6 @@ The explanation of each column is as follows:
  
  * genename: the HUGO gene symbol
  * first_exon_region：the genomic region of first exon region ranging from distal TSS to first exon end
- * strand：the strand of given gene
  * Annotated_TSSs：all annotated TSSs within the first exon region
  * Proximal_TSS：the position of proximal TSS inferred by DATTSS based on joint RNA-seq read coverage level
  * MSE_ratio：the MSEratio of the inferred proximal TSS
