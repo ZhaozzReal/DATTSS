@@ -3,7 +3,7 @@
 
 ## Description
 
-DATTSS is developped for systematic analysis of alternative tandem TSS events from standard RNA-seq data. Given the read coverage profiles of two or multiple RNA-seq samples, DATTSS first identifies the most distal TSS in each first exon region that has evidence of being used in the samples of interest. Then DATTSS infers the location of proximal tandem TSS based on “change point” model, where the usage of internal tandem TSS would lead to a profound increase in RNA-seq read coverage in the first exon region. Once the proximal tandem TSSs are identified, library size-normalized expression levels and the relative usage of tandem TSS are calculated.
+DATTSS is developed for dynamic analysis of alternative tandem TSS events from standard RNA-seq data. Given the read coverage profiles of two or multiple RNA-seq samples, DATTSS first identifies the most distal TSS in each first exon region that has evidence of being used in the samples of interest. Then DATTSS infers the location of proximal tandem TSS based on “change point” model, where the usage of proximal tandem TSS would lead to a profound increase in RNA-seq read coverage in the first exon region. Once the proximal tandem TSSs are identified, library size-normalized expression levels and the relative usage of distal tandem TSS are calculated.
 
 
 ## Diagram illuminates the DATTSS algorithm
