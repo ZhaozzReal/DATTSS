@@ -45,10 +45,9 @@ The explanation of each column is as follows:
  
  * genename: the HUGO gene symbol
  * first_exon_region：the genomic region of first exon region ranging from distal TSS to first exon end
- * Annotated_TSSs：all annotated TSSs within the first exon region
  * Proximal_TSS：the position of proximal TSS inferred by DATTSS based on joint RNA-seq read coverage level
  * MSE_ratio：the ratio of mean square error (MSE) calculated at the genomic position of inferred proximal tandem TSS
- * sample1.bam：the distal TSS usage of given tandem TSS event in sample1 (None value means that the mean coverage of common 5'UTR region is lower than certain cutoff (default=20), which should be discarded from downstream analysis)
+ * sample1.bam：the distal TSS usage of given tandem TSS event in sample1 (```None``` means that the mean coverage of common 5'UTR region is lower than certain cutoff (default=20), which should be discarded from downstream analysis)
  * sample2.bam：the distal TSS usage of given tandem TSS event in sample2
  * sample3.bam：the distal TSS usage of given tandem TSS event in sample3
  * sampleN.bam：the distal TSS usage of given tandem TSS event in sampleN
