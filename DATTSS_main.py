@@ -79,9 +79,10 @@ def Get_internal_TSS(cvg,peaks,first_exon_end):
 
 def Cal_firstTSS_usage(point,all_cvg_list):
     ratio_list = []
+    coverage_threshold = 20
     for cvg in all_cvg_list:
         cUTR = np.mean(sorted(cvg[:point],reverse = True)[:30])
-        if cUTR > 20:
+        if cUTR > coverage_threshold:
             dis = min(max(point,100),int(len(cvg[point:])/2))
             aUTR = np.mean(sorted(cvg[point:],reverse = True)[:dis])
             ratio = round(aUTR/cUTR,3)
@@ -105,12 +106,12 @@ def Get_sample_dict(gdcfile,path):
 
 
 bamfile_txt = args.bamfiles
-bamfiles = [ line.strip().split(",") for line in open(bamfile_txt,"r")]
+bamfiles = open(bamfile_txt,"r").readlines()[0].strip().split(',')
 bamnames = [ i.split("/")[-1] for i in bamfiles]
 
 
 out = open(args.outfile,"w")
-out.write("{}\t{}\t{}\t{}\t{}\t{}\n".format("genename","first_exon_region","Annotated_TSSs","Proximal_TSS","MSE_ratio","\t".join(bamnames)))
+out.write("{}\t{}\t{}\t{}\t{}\n".format("genename","first_exon_region","Proximal_TSS","MSE_ratio","\t".join(bamnames)))
 pool = Pool(args.processors)
 for line in open(args.anno_txt,"r"):
     SYMBOL,first_exon,strand,Annotated_TSSs = line.strip().split("\t")
@@ -119,10 +120,11 @@ for line in open(args.anno_txt,"r"):
         first_exon_end = int(first_exon.split(":")[1].split("-")[1])
     else:
         first_exon_end = int(first_exon.split(":")[1].split("-")[0])
-    exon_bamfiles_list = list(zip([first_exon]*len(tumor_bamfiles),tumor_bamfiles))
+    exon_bamfiles_list = list(zip([first_exon]*len(bamfiles),bamfiles))
     all_cvg_list = pool.map(Get_region_cvg_list,exon_bamfiles_list)
     merged_cvg = np.sum(all_cvg_list,axis = 0).tolist()
-    if max(merged_cvg) > 500:
+    coverage_threshold = 30
+    if max(merged_cvg) > coverage_threshold*len(bamfiles):
         if strand == "+":
             merged_cvg = merged_cvg[::-1]
         Proximal_TSS,min_mse_ratio,exon_length = Get_internal_TSS(merged_cvg,Annotated_TSSs,first_exon_end)
@@ -137,7 +139,7 @@ for line in open(args.anno_txt,"r"):
                 all_cvg_list = [ cvg[::-1][:exon_length] for cvg in all_cvg_list]
                 first_exon = chrom + ":" + str(first_exon_end - exon_length) + "-" + str(first_exon_end) + ":" + strand
             ratio_list = Cal_firstTSS_usage(point,all_cvg_list)
-            out.write("{}\t{}\t{}\t{}\t{}\t{}\n".format(SYMBOL,first_exon,Annotated_TSSs,Proximal_TSS,min_mse_ratio,,"\t".join(list(map(str,ratio_list)))))
+            out.write("{}\t{}\t{}\t{}\t{}\n".format(SYMBOL,first_exon,Proximal_TSS,min_mse_ratio,"\t".join(list(map(str,ratio_list)))))
 
 
 out.close()
