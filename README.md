@@ -45,8 +45,8 @@ The explanation of each column is as follows:
  
  * genename: the HUGO gene symbol
  * first_exon_region：the genomic region of first exon region ranging from distal TSS to first exon end
- * Proximal_TSS：the position of proximal TSS inferred by DATTSS based on joint RNA-seq read coverage level
- * MSE_ratio：the ratio of mean square error (MSE) calculated at the genomic position of inferred proximal tandem TSS
+ * Proximal_TSS：the position of proximal TSS inferred by DATTSS based on joint RNA-seq read coverage profile
+ * MSE_ratio：the ratio of mean square error (MSE) calculated at the inferred proximal tandem TSS
  * sample1.bam：the distal TSS usage of given tandem TSS event in sample1 (```None``` means that the mean coverage of common 5'UTR region is lower than certain cutoff (default=20), which should be discarded from downstream analysis)
  * sample2.bam：the distal TSS usage of given tandem TSS event in sample2
  * sample3.bam：the distal TSS usage of given tandem TSS event in sample3
@@ -55,4 +55,4 @@ The explanation of each column is as follows:
 
 
 ## Tips
-DATTSS detects and quantifies dynamic tandem TSS usage based on prior TSS annotations, which could ensure the discovery of authentic and reliable tandem TSS events in diverse physiological and pathological processes by exploiting the huge amount of standard RNA-seq data. And the fast calculation speed of DATTSS is friendly to population-level analyses of dynamic tandem TSS usage, which could be used in RNA-seq data from TCGA and GTEx project.
+DATTSS detects and quantifies dynamic tandem TSS usage based on prior TSS annotations, which could ensure the discovery of authentic and reliable tandem TSS events in diverse physiological and pathological processes by exploiting the huge amount of standard RNA-seq data. And the fast calculation speed of DATTSS is friendly to population-level analyses of dynamic tandem TSS usage, which could be applied in RNA-seq data from TCGA and GTEx project.
