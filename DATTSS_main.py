@@ -42,7 +42,7 @@ def Estimation_abundance(Region_Coverage,break_point):
 
 
 
-def Get_internal_TSS(cvg,peaks,first_exon_end):
+def Get_proximal_TSS(cvg,peaks,first_exon_end):
     point_list = [abs(int(i) - int(first_exon_end)) for i in peaks.split("_")]
     for point in sorted(point_list,reverse = True):
         downcov = np.mean(cvg[point:])
@@ -77,7 +77,7 @@ def Get_internal_TSS(cvg,peaks,first_exon_end):
 
 
 
-def Cal_firstTSS_usage(point,all_cvg_list):
+def Cal_distalTSS_usage(point,all_cvg_list):
     ratio_list = []
     coverage_threshold = 20
     for cvg in all_cvg_list:
@@ -127,7 +127,7 @@ for line in open(args.anno_txt,"r"):
     if max(merged_cvg) > coverage_threshold*len(bamfiles):
         if strand == "+":
             merged_cvg = merged_cvg[::-1]
-        Proximal_TSS,min_mse_ratio,exon_length = Get_internal_TSS(merged_cvg,Annotated_TSSs,first_exon_end)
+        Proximal_TSS,min_mse_ratio,exon_length = Get_proximal_TSS(merged_cvg,Annotated_TSSs,first_exon_end)
         if Proximal_TSS != "NA":
             point = abs(Proximal_TSS - first_exon_end)
             upstream_abundance = round(np.mean(merged_cvg[point:]),3)
@@ -138,7 +138,8 @@ for line in open(args.anno_txt,"r"):
             else:
                 all_cvg_list = [ cvg[::-1][:exon_length] for cvg in all_cvg_list]
                 first_exon = chrom + ":" + str(first_exon_end - exon_length) + "-" + str(first_exon_end) + ":" + strand
-            ratio_list = Cal_firstTSS_usage(point,all_cvg_list)
+            ratio_list = Cal_distalTSS_usage(point,all_cvg_list)
+            Proximal_TSS = chrom + ":" + str(Proximal_TSS)
             out.write("{}\t{}\t{}\t{}\t{}\n".format(SYMBOL,first_exon,Proximal_TSS,min_mse_ratio,"\t".join(list(map(str,ratio_list)))))
 
 
