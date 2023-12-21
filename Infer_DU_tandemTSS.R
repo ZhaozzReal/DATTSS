@@ -30,7 +30,7 @@ DTUI_table[,5:ncol(DTUI_table)] = apply(DTUI_table[,5:ncol(DTUI_table)],2,as.num
 DTUI_table$DTUI_condition1 = rowSums(DTUI_table[,5:(5+condition_length[1]-1)])/2
 DTUI_table$DTUI_condition2 = rowSums(DTUI_table[,(5+condition_length[1]):(5+condition_length[1]+condition_length[2]-1)])/2
 DTUI_table$DTUI_diff = DTUI_table$DTUI_condition2 - DTUI_table$DTUI_condition1
-DTUI_table = DTUI_table %>% rowwise() %>% dplyr::mutate(anno=paste0(genename,":",strsplit(Proximal_TSS,":",fixed=T) %>% unlist() %>% .[2])) %>% 
-  inner_join(dexresult) %>% dplyr::select(-"anno")
-final = DTUI_table %>% dplyr::mutate(change=ifelse(padj<0.05&abs(DTUI_diff)>0.1,ifelse(DTUI_diff>0,"Lengthening","Shortening"),"Nochange"))
+DTUI_table = DTUI_table %>% rowwise() %>% dplyr::mutate(anno=paste0(genename,":",strsplit(as.character(Proximal_TSS),":",fixed=T) %>% unlist() %>% .[2])) %>% 
+  inner_join(dexresult)
+final = DTUI_table %>% dplyr::mutate(change=ifelse(padj<0.05&abs(DTUI_diff)>0.1,ifelse(DTUI_diff>0,"Lengthening","Shortening"),"Nochange")) %>% dplyr::select(-"anno")
 write.table(final,opt$args[4],quote = FALSE,sep = "\t",row.names = FALSE)
