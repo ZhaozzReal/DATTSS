@@ -58,7 +58,8 @@ The explanation of each column is as follows:
 DATTSS detects and quantifies dynamic tandem TSS usage based on prior TSS annotations, which could ensure the discovery of authentic and reliable tandem TSS events in diverse physiological and pathological processes by exploiting the huge amount of standard RNA-seq data. And the fast calculation speed of DATTSS is friendly to population-level analyses of dynamic tandem TSS usage, which could be applied in RNA-seq data from TCGA and GTEx project.
 
 
-
+<br/>
+<br/>
 
 
 
