@@ -54,5 +54,44 @@ The explanation of each column is as follows:
 
 
 
+# Compare alternative tandem TSS usage between conditions with replicates
+
+**Command** 
+
+```
+python DATTSS_compare.py -b /path/to/allbamfiles.txt -anno /path/to/hg38_first_exon_annotation_forDATTSS.txt -p 10 -r /path/to/hg38_GEOCODE_ExonRegion_annotation.txt -d /path/to/exonCount/ -o /path/to/DATTSS_output.txt
+```
+
+allbamfiles.txt contains all filename of bamfile between two conditions, as shown below:
+
+```
+condition1=/path/to/ctrl1.bam,/path/to/ctrl2.bam 
+condition2=/path/to/case1.bam,/path/to/case2.bam
+```
+
+Following counting reads mapped to GEOCODE-annotated exons and inferred alternative terminal exons, DATTSS outputs the results into directory ```/path/to/exonCount/```. 
+```
+/path/to/exonCount/
+  |-- ctrl1_exoncount.txt
+  |-- ctrl2_exoncount.txt
+  |-- case1_exoncount.txt
+  |-- case2_exoncount.txt
+```
+
+## Infer statistically differential tandem TSS usage between conditions
+
+DATTSS utilizes DEXSeq, the model for differential exon usage analysis based on standard RNA-seq data, to detect differential usage of alternative 5' terminal exon. This statistical framework could account for biological variability between replicates and is robust to changes in isoform abundance between conditions.
+
+**Command**
+
+```
+Rscript Infer_DU_tandemTSS.R -b /path/to/allbamfiles.txt -I /path/to/DATTSS_output.txt -d /path/to/exonCount -o /path/to/DATTSS_tandem_DU.txt
+```
+
+Final results will be saved in the file ```DATTSS_tandem_DU.txt```.
+
+
+
+
 ## Tips
 DATTSS detects and quantifies dynamic tandem TSS usage based on prior TSS annotations, which could ensure the discovery of authentic and reliable tandem TSS events in diverse physiological and pathological processes by exploiting the huge amount of standard RNA-seq data. And the fast calculation speed of DATTSS is friendly to population-level analyses of dynamic tandem TSS usage, which could be applied in RNA-seq data from TCGA and GTEx project.
