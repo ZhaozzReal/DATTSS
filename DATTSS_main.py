@@ -140,4 +140,4 @@ def DATTSS_main(anno_txt,bamfile_txt,processors,outfile):
     out.close()
 
 
-DATTSS_main(args.anno_txt,args.bamfile_txt,args.processors,args.outfile)
+DATTSS_main(args.anno_txt,args.bamfiles,args.processors,args.outfile)
