@@ -59,11 +59,14 @@ DATTSS detects and quantifies dynamic tandem TSS usage based on prior TSS annota
 
 
 
+
+
+
+
 ## Compare alternative tandem TSS usage between conditions with replicates
 
-
 ***Step1: Detect and quantify alternative tandem TSS events***
-**Command** 
+
 
 ```
 python DATTSS_compare.py -b /path/to/allbamfiles.txt -anno /path/to/hg38_first_exon_annotation_forDATTSS.txt -p 10 -r /path/to/hg38_GEOCODE_ExonRegion_annotation.txt -d /path/to/exonCount/ -o /path/to/DATTSS_output.txt
@@ -89,7 +92,6 @@ Following counting reads mapped to GEOCODE-annotated exons and inferred alternat
 
 DATTSS utilizes DEXSeq, the model for differential exon usage analysis based on standard RNA-seq data, to detect differential usage of alternative 5' terminal exon. This statistical framework could account for biological variability between replicates and is robust to changes in isoform abundance between conditions.
 
-**Command**
 
 ```
 Rscript Infer_DU_tandemTSS.R -b /path/to/allbamfiles.txt -I /path/to/DATTSS_output.txt -d /path/to/exonCount -o /path/to/DATTSS_tandem_DU.txt
