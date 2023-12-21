@@ -54,7 +54,12 @@ The explanation of each column is as follows:
 
 
 
-# Compare alternative tandem TSS usage between conditions with replicates
+## Tips
+DATTSS detects and quantifies dynamic tandem TSS usage based on prior TSS annotations, which could ensure the discovery of authentic and reliable tandem TSS events in diverse physiological and pathological processes by exploiting the huge amount of standard RNA-seq data. And the fast calculation speed of DATTSS is friendly to population-level analyses of dynamic tandem TSS usage, which could be applied in RNA-seq data from TCGA and GTEx project.
+
+
+
+## Compare alternative tandem TSS usage between conditions with replicates
 
 **Command** 
 
@@ -91,7 +96,3 @@ Rscript Infer_DU_tandemTSS.R -b /path/to/allbamfiles.txt -I /path/to/DATTSS_outp
 Final results will be saved in the file ```DATTSS_tandem_DU.txt```.
 
 
-
-
-## Tips
-DATTSS detects and quantifies dynamic tandem TSS usage based on prior TSS annotations, which could ensure the discovery of authentic and reliable tandem TSS events in diverse physiological and pathological processes by exploiting the huge amount of standard RNA-seq data. And the fast calculation speed of DATTSS is friendly to population-level analyses of dynamic tandem TSS usage, which could be applied in RNA-seq data from TCGA and GTEx project.
