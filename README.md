@@ -64,7 +64,7 @@ DATTSS detects and quantifies dynamic tandem TSS usage based on prior TSS annota
 
 
 
-## Compare alternative tandem TSS usage between conditions with replicates
+## Compare alternative tandem TSS usage between conditions
 
 ***Step1: Detect and quantify alternative tandem TSS events***
 
