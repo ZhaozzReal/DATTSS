@@ -27,8 +27,8 @@ dexresult = DEXSeqResults( dxd ) %>% as.data.frame() %>% dplyr::filter(grepl("di
 DTUI_table = read.table(opt$args[2],header = T)
 DTUI_table = DTUI_table[rowSums(DTUI_table[,5:ncol(DTUI_table)]!="None")==length(filenames),]
 DTUI_table[,5:ncol(DTUI_table)] = apply(DTUI_table[,5:ncol(DTUI_table)],2,as.numeric)
-DTUI_table$DTUI_condition1 = rowSums(DTUI_table[,5:(5+condition_length[1]-1)])/2
-DTUI_table$DTUI_condition2 = rowSums(DTUI_table[,(5+condition_length[1]):(5+condition_length[1]+condition_length[2]-1)])/2
+DTUI_table$DTUI_condition1 = rowSums(DTUI_table[,5:(5+condition_length[1]-1)])/condition_length[1]
+DTUI_table$DTUI_condition2 = rowSums(DTUI_table[,(5+condition_length[1]):(5+condition_length[1]+condition_length[2]-1)])/condition_length[2]
 DTUI_table$DTUI_diff = DTUI_table$DTUI_condition2 - DTUI_table$DTUI_condition1
 DTUI_table = DTUI_table %>% rowwise() %>% dplyr::mutate(anno=paste0(genename,":",strsplit(as.character(Proximal_TSS),":",fixed=T) %>% unlist() %>% .[2])) %>% 
   inner_join(dexresult)
