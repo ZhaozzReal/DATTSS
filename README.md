@@ -13,7 +13,7 @@ DATTSS is developed for Dynamic analyses of Alternative Tandem TSS events from s
 
 ## Installation
 
-DATTSS is built on Python, which requiring packages ```HTSeq```, ```numpy```, ```multiprocessing``` and ```argparse```.
+DATTSS is built on Python, which requires packages ```HTSeq```, ```numpy```, ```multiprocessing``` and ```argparse```.
 
 Clone the lastest development version of DATTSS and change directory:
 
