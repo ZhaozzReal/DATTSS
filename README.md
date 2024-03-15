@@ -8,7 +8,7 @@ DATTSS is developed for Dynamic analyses of Alternative Tandem TSS events from s
 
 ## Diagram illuminates the DATTSS algorithm
 
-![image,height="50%",width="50%"](https://github.com/ZhaozzReal/DATTSS/blob/main/diagram.png)
+![image](https://github.com/ZhaozzReal/DATTSS/blob/main/diagram.png)
 
 
 ## Installation
