@@ -95,16 +95,6 @@ def Cal_distalTSS_usage(point,all_cvg_list):
     return ratio_list
 
 
-
-
-def Get_sample_dict(gdcfile,path):
-    tumor_dict = {}
-    for line in open(gdcfile,"r"):
-        if "Sample Type" not in line:
-            tumor_dict[line.strip().split("\t")[6]] = path + line.strip().split("\t")[1]
-    return tumor_dict
-
-
 def DATTSS_main(anno_txt,bamfile_txt,processors,outfile):
     bamfiles = open(bamfile_txt,"r").readlines()[0].strip().split(',')
     bamnames = [ i.split("/")[-1] for i in bamfiles]
