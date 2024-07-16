@@ -25,7 +25,7 @@ Clone the lastest development version of DATTSS and change directory:
 ## Usage
 
 ```
-python DATTSS_main.py -b /path/to/allbamfiles.txt -anno /path/to/hg38_first_exon_annotation_forDATTSS.txt -p 10 -o /path/to/DATTSS_output.txt
+python DATTSS_main.py -b /path/to/allbamfiles.txt -anno /path/to/hgXX_first_exon_annotation_forDATTSS.txt -p 10 -o /path/to/DATTSS_output.txt
 ```
 
 * ```/path/to/allbamfiles.txt``` contains all input filenames (BAM format) of samples of interest. 
@@ -34,7 +34,7 @@ The expected format is `,` to separate different files:
 /path/to/sample1.bam,/path/to/sample2.bam,/path/to/sample3.bam,/path/to/sampleN.bam
 ```
 
-* ```/path/to/hg38_first_exon_annotation_forDATTSS.txt``` contains first exon regions of all transcripts from protein-coding genes and annotated tandem TSSs within them, which is built on hg38 version.
+* ```/path/to/hgXX_first_exon_annotation_forDATTSS.txt``` contains first exon regions of all transcripts from protein-coding genes and annotated internal tandem TSSs within them, which is built on hg38 or hg19 genome version.
 
 
 ## Output
@@ -70,7 +70,7 @@ DATTSS detects and quantifies dynamic tandem TSS usage based on prior TSS annota
 
 
 ```
-python DATTSS_compare.py -b /path/to/allbamfiles.txt -anno /path/to/hg38_first_exon_annotation_forDATTSS.txt -p 10 -r /path/to/hg38_GEOCODE_ExonRegion_annotation.txt -d /path/to/exonCount/ -o /path/to/DATTSS_output.txt
+python DATTSS_compare.py -b /path/to/allbamfiles.txt -anno /path/to/hgXX_first_exon_annotation_forDATTSS.txt -p 10 -r /path/to/hgXX_GEOCODE_ExonRegion_annotation.txt -d /path/to/exonCount/ -o /path/to/DATTSS_output.txt
 ```
 
 allbamfiles.txt contains all filename of bamfile between two conditions, as shown below:
