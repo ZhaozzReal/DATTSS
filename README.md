@@ -103,7 +103,7 @@ Final results will be saved in the file ```DATTSS_tandem_DU.txt```.
 
 ## Citation
 
-*Please cite the following articles if you use DATTSS in your research:
+*Please cite the following article if you use DATTSS in your research:*
 
 * Zhao Z, Chen Y, Zou X, Lin L, Zhou X, Cheng X, Yang G, Xu Q, Gong L, Li L, Ni T. Pan-cancer transcriptome analysis reveals widespread regulation through alternative tandem transcription initiation. Sci Adv. 2024 Jul 12;10(28):eadl5606. PMID: 38985880.
 
