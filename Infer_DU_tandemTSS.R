@@ -30,7 +30,7 @@ DTUI_table[,5:ncol(DTUI_table)] = apply(DTUI_table[,5:ncol(DTUI_table)],2,as.num
 DTUI_table$DTUI_condition1 = round(rowSums(DTUI_table[,5:(5+condition_length[1]-1)])/condition_length[1],3)
 DTUI_table$DTUI_condition2 = round(rowSums(DTUI_table[,(5+condition_length[1]):(5+condition_length[1]+condition_length[2]-1)])/condition_length[2],3)
 DTUI_table$DTUI_diff = round(DTUI_table$DTUI_condition2 - DTUI_table$DTUI_condition1,3)
-DTUI_table = DTUI_table %>% rowwise() %>% dplyr::mutate(anno=paste0(genename,":",strsplit(as.character(Proximal_TSS),":",fixed=T) %>% unlist() %>% .[2])) %>% 
-  inner_join(dexresult) %>% dplyr::distinct(anno,.keep_all=T)
-final = DTUI_table %>% dplyr::mutate(change=ifelse(padj<0.05&abs(DTUI_diff)>0.05,ifelse(DTUI_diff>0,"Lengthening","Shortening"),"Nochange")) %>% dplyr::select(-"anno")
+DTUI_table = DTUI_table %>% rowwise() %>% dplyr::mutate(anno=paste0(genename,":",strsplit(as.character(proximal_TSS),":",fixed=T) %>% unlist() %>% .[2])) %>% 
+  inner_join(dexresult)
+final = DTUI_table %>% dplyr::mutate(change=ifelse(padj<0.05&abs(DTUI_diff)>0.05,ifelse(DTUI_diff>0,"Lengthening","Shortening"),"Nochange")) %>% dplyr::distinct(genename,proximal_TSS,.keep_all=T) %>% dplyr::select(-"anno")
 write.table(final,opt$args[4],quote = FALSE,sep = "\t",row.names = FALSE)
