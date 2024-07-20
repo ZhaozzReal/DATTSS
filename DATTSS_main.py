@@ -97,9 +97,9 @@ def Cal_distalTSS_usage(point,all_cvg_list):
 
 def DATTSS_main(anno_txt,bamfile_txt,processors,outfile):
     bamfiles = open(bamfile_txt,"r").readlines()[0].strip().split(',')
-    bamnames = [ i.split("/")[-1] for i in bamfiles]
+    bamnames = [i.split("/")[-1] for i in bamfiles]
     out = open(outfile,"w")
-    out.write("{}\t{}\t{}\t{}\t{}\n".format("genename","first_exon_region","Proximal_TSS","MSE_ratio","\t".join(bamnames)))
+    out.write("{}\t{}\t{}\t{}\t{}\n".format("genename","first_exon_region","proximal_TSS","MSE_ratio","\t".join(bamnames)))
     pool = Pool(processors)
     for line in open(anno_txt,"r"):
         SYMBOL,first_exon,strand,Annotated_TSSs = line.strip().split("\t")
