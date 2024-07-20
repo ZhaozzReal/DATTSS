@@ -162,9 +162,9 @@ def output_exoncount(dir_path,all_bamfiles,exonRegion,outfile,processors):
 
 
 def DATTSS_main(outfile,anno_txt,processors,all_bamfiles):
-    bamnames = [ i.split("/")[-1] for i in all_bamfiles]
+    bamnames = [i.split("/")[-1] for i in all_bamfiles]
     out = open(outfile,"w")
-    out.write("{}\t{}\t{}\t{}\t{}\n".format("genename","first_exon_region","Proximal_TSS","MSE_ratio","\t".join(bamnames)))
+    out.write("{}\t{}\t{}\t{}\t{}\n".format("genename","first_exon_region","proximal_TSS","MSE_ratio","\t".join(bamnames)))
     pool = Pool(processors)
     for line in open(anno_txt,"r"):
         SYMBOL,first_exon,strand,Annotated_TSSs = line.strip().split("\t")
