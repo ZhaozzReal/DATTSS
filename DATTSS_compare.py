@@ -192,7 +192,7 @@ def DATTSS_main(outfile,anno_txt,processors,all_bamfiles):
                 ratio_list = Cal_distalTSS_usage(point,all_cvg_list)
                 Proximal_TSS = chrom + ":" + str(Proximal_TSS)
                 out.write("{}\t{}\t{}\t{}\t{}\n".format(SYMBOL,first_exon,Proximal_TSS,round(min_mse_ratio,3),"\t".join(list(map(str,ratio_list)))))
-    out.close()
+                out.flush()
 
 
 bamfiles_condition1,bamfiles_condition2 = parse_cfgfile(args.bamfiles)
