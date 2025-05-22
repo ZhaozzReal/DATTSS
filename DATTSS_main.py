@@ -127,7 +127,7 @@ def DATTSS_main(anno_txt,bamfile_txt,processors,outfile):
                 ratio_list = Cal_distalTSS_usage(point,all_cvg_list)
                 Proximal_TSS = chrom + ":" + str(Proximal_TSS)
                 out.write("{}\t{}\t{}\t{}\t{}\n".format(SYMBOL,first_exon,Proximal_TSS,min_mse_ratio,"\t".join(list(map(str,ratio_list)))))
-    out.close()
+                out.flush()
 
 
 DATTSS_main(args.anno_txt,args.bamfiles,args.processors,args.outfile)
